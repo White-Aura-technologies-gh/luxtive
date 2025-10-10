@@ -1,0 +1,505 @@
+/* Import common styles for navbar, footer, buttons, etc. */
+@import url('styles.css');
+
+/* =================================== */
+/*          Shop Page Layout           */
+/* =================================== */
+
+.shop-main {
+    padding-top: 81px; /* Offset for fixed navbar */
+    background-color: var(--background);
+}
+
+.shop-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.shop-header {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-light);
+    position: relative; /* Needed for positioning the background */
+    overflow: hidden; /* Hide the images outside the header area */
+    z-index: 1; /* Ensure header content is on top */
+}
+
+.shop-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.shop-header p {
+    font-size: 1.1rem;
+    color: var(--primary-white);
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative; /* Ensure text is above the background overlay */
+    z-index: 2;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.shop-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    padding: 3rem 0 6rem;
+}
+
+/* Scrolling Background for Shop Header */
+.scrolling-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.scrolling-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better contrast and image visibility */
+    z-index: 1;
+}
+
+.scrolling-bg-track {
+    display: flex;
+    width: calc(300px * 12); /* (Image width * number of images) */
+    animation: scroll-left 60s linear infinite;
+}
+
+.scrolling-bg-track img {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7; /* Increased image visibility */
+    filter: grayscale(30%);
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 6)); /* Move by the width of the first set of images */
+    }
+}
+
+/* =================================== */
+/*           Filters Sidebar           */
+/* =================================== */
+
+.filters-sidebar {
+    border-right: 1px solid var(--border-light);
+    padding-right: 2rem;
+}
+
+.filter-group {
+    margin-bottom: 2.5rem;
+}
+
+.filter-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    font-family: 'Playfair Display', serif;
+}
+.category-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.category-filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--border-light);
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--primary-white);
+    color: var(--text-dark);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.category-filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--accent-gold);
+}
+
+.category-filter-btn.active {
+    background-color: var(--accent-gold);
+    color: var(--primary-white);
+    border-color: var(--accent-gold);
+    box-shadow: 0 3px 8px rgba(200, 166, 92, 0.3);
+    transform: translateY(-1px);
+}
+.filter-list li label:hover {
+    color: var(--accent-gold);
+}
+
+.price-filter input[type="range"] {
+    width: 100%;
+    margin: 1rem 0;
+    accent-color: var(--accent-gold);
+}
+
+.price-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+#price-value {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.apply-filters-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* =================================== */
+/*            Products Area            */
+/* =================================== */
+
+.products-area {
+    min-width: 0; /* Prevents grid blowout */
+}
+
+.shop-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.product-count {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.sort-options select {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+    background-color: var(--primary-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Re-using the product grid from styles.css */
+#shop-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Adding a badge for sale items */
+.product-badge.sale {
+    background-color: #d9534f; /* A sale red color */
+}
+
+/* Overview button on product card image */
+.overview-btn {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+    background-color: var(--primary-white);
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+}
+
+.product-card:hover .overview-btn {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Styles for the new product card actions */
+.product-card-details {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.product-card-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.product-card-actions .cta-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    flex-grow: 1;
+}
+
+.cta-button.tertiary {
+    background-color: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    box-shadow: none;
+}
+
+.cta-button.tertiary:hover {
+    background-color: rgba(200, 166, 92, 0.1);
+    color: #b8944a;
+}
+
+.cta-button.tertiary.selected {
+    background-color: #b8944a;
+    color: var(--primary-white);
+    border-color: #b8944a;
+}
+
+/* Emphasize the product price on the shop grid */
+#shop-product-grid .product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+/* =================================== */
+/*          Quick View Modal           */
+/* =================================== */
+
+.quick-view-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1010;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.quick-view-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quick-view-modal .modal-content {
+    background-color: var(--primary-white);
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 2rem;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.quick-view-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.quick-view-modal .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.modal-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.modal-details h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.modal-details .product-price {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+/* Compare Modal Styles */
+#compare-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.compare-item {
+    border-right: 1px solid var(--border-light);
+    padding-right: 2rem;
+}
+
+.compare-item:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.compare-item img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+    display: block;
+    border-radius: 8px;
+}
+
+/* =================================== */
+/*             Pagination              */
+/* =================================== */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 4rem;
+}
+
+.page-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.page-number:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-white);
+    border-color: var(--accent-gold);
+}
+
+.page-number.active {
+    background-color: var(--accent-gold);
+    color: var(--primary-white);
+    border-color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.page-number.disabled {
+    color: var(--border-light);
+    cursor: not-allowed;
+}
+
+.page-number.disabled:hover {
+    background-color: transparent;
+    color: var(--border-light);
+    border-color: var(--border-light);
+}
+
+.page-ellipsis {
+    color: var(--text-light);
+    padding: 0 0.5rem;
+}
+
+/* =================================== */
+/*         Responsive Design           */
+/* =================================== */
+
+@media (max-width: 1024px) {
+    .shop-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-sidebar {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 2rem;
+    }
+
+    #shop-product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-container {
+        padding: 0 20px;
+    }
+
+    .shop-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .shop-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    #shop-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #shop-product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pagination {
+        gap: 0.25rem;
+    }
+
+    .page-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    #compare-modal-body {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
