@@ -194,12 +194,12 @@ class HeroOrbital {
         this.rotationTime = 3000; // 3 seconds
         this.isAnimating = false;
         this.products = [
-            { id: 'celestial-pendant', name: 'Celestial Pendant', price: '$2,800', image: 'images/others-icon.png' },
-            { id: 'bridal-necklace', name: 'Bridal Necklace', price: '$3,200', image: 'images/Necklace-icon.png' },
-            { id: 'eternity-bracelet', name: 'Eternity Bracelet', price: '$1,950', image: 'images/rings-icon.png' },
-            { id: 'infinity-earrings', name: 'Infinity Earrings', price: '$2,500', image: 'images/Necklace-icon.png' },
-            { id: 'luxury-watch', name: 'Luxury Watch', price: '$4,500', image: 'images/watches-icon.png' },
-            { id: 'gemstone-ring', name: 'Gemstone Ring', price: '$3,100', image: 'images/rings-icon.png' }
+            { id: 'celestial-pendant', name: 'Celestial Pendant', price: '$2,800', image: 'others-icon.png' },
+            { id: 'bridal-necklace', name: 'Bridal Necklace', price: '$3,200', image: 'Necklace-icon.png' },
+            { id: 'eternity-bracelet', name: 'Eternity Bracelet', price: '$1,950', image: 'rings-icon.png' },
+            { id: 'infinity-earrings', name: 'Infinity Earrings', price: '$2,500', image: 'Necklace-icon.png' },
+            { id: 'luxury-watch', name: 'Luxury Watch', price: '$4,500', image: 'watches-icon.png' },
+            { id: 'gemstone-ring', name: 'Gemstone Ring', price: '$3,100', image: 'rings-icon.png' }
         ];
         
         // Element references
@@ -593,4 +593,5 @@ class App {
 document.addEventListener('DOMContentLoaded', () => {
     const app = new App();
     app.init();
+
 });
