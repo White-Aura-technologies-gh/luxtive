@@ -881,12 +881,12 @@ h1, h2, h3, h4 {
 }
 
 /* Placeholder background images */
-.category-btn:nth-child(1) { background-image: url('images/Necklace-icon.png'); }
-.category-btn:nth-child(2) { background-image: url('images/bracelet-icon.png'); }
-.category-btn:nth-child(3) { background-image: url('images/rings-icon.png'); }
-.category-btn:nth-child(4) { background-image: url('images/watches-icon.png'); }
-.category-btn:nth-child(5) { background-image: url('images/anklet-icon.png'); }
-.category-btn:nth-child(6) { background-image: url('images/others-icon.png'); }
+.category-btn:nth-child(1) { background-image: url('Necklace-icon.png'); }
+.category-btn:nth-child(2) { background-image: url('bracelet-icon.png'); }
+.category-btn:nth-child(3) { background-image: url('rings-icon.png'); }
+.category-btn:nth-child(4) { background-image: url('watches-icon.png'); }
+.category-btn:nth-child(5) { background-image: url('anklet-icon.png'); }
+.category-btn:nth-child(6) { background-image: url('others-icon.png'); }
 
 .category-btn::before {
     content: '';
@@ -1593,4 +1593,5 @@ h1, h2, h3, h4 {
     visibility: visible;
     transform: translateY(0);
 }
+
 }
