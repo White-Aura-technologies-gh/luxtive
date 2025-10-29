@@ -29,14 +29,37 @@
 
             <!-- Desktop Navigation Menu -->
             <ul class="nav-menu">
-                <li class="nav-item">
+                <li class="nav-item has-dropdown">
                     <a href="index.html" class="nav-link">Home</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="index.html#categories">Categories</a>
+                        <a href="index.html#promotions">Promotions</a>
+                        <a href="index.html#new-arrivals">New Arrivals</a>
+                        <a href="index.html#most-loved">Most Loved</a>
+                    </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item has-dropdown">
                     <a href="shop.html" class="nav-link">Shop</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="shop.html?category=necklaces">Necklaces</a>
+                        <a href="shop.html?category=rings">Rings</a>
+                        <a href="shop.html?category=bracelets">Bracelets</a>
+                        <a href="shop.html?category=earrings">Earrings</a>
+                        <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Collections</a>
+                <li class="nav-item has-dropdown">
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html#our-purpose">Our Purpose</a>
+                        <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                        <a href="about.html#our-policies">Our Policies</a>
+                        <a href="about.html#reviews">Testimonials & Reviews</a>
+                        <a href="about.html#contact-us">Contact Us</a>
+                    </div>
                 </li>
             </ul>
 
@@ -51,12 +74,12 @@
 
                 <!-- Cart Icon -->
                 <button class="icon-btn" id="cart-btn" aria-label="Open cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
+                    <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
+                </button>
+                <button class="icon-btn" id="wishlist-btn" aria-label="Open wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
                 </button>
 
                 <!-- Mobile Menu Toggle -->
@@ -97,15 +120,35 @@
                 <ul class="mobile-nav-list">
                     <li class="mobile-nav-item">
                         <a href="index.html" class="mobile-nav-link">Home</a>
+                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-menu">
+                            <a href="index.html#categories">Categories</a>
+                            <a href="index.html#promotions">Promotions</a>
+                            <a href="index.html#new-arrivals">New Arrivals</a>
+                            <a href="index.html#most-loved">Most Loved</a>
+                        </div>
                     </li>
                     <li class="mobile-nav-item">
                         <a href="shop.html" class="mobile-nav-link">Shop</a>
+                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-menu">
+                            <a href="shop.html?category=necklaces">Necklaces</a>
+                            <a href="shop.html?category=rings">Rings</a>
+                            <a href="shop.html?category=bracelets">Bracelets</a>
+                            <a href="shop.html?category=earrings">Earrings</a>
+                            <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                        </div>
                     </li>
-                    <li class="mobile-nav-item">
-                        <a href="shop.html" class="mobile-nav-link">Collections</a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">About</a>
+                    <li class="mobile-nav-item has-dropdown">
+                        <a href="about.html" class="mobile-nav-link">About Us</a>
+                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-menu">
+                            <a href="about.html#our-purpose">Our Purpose</a>
+                            <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                            <a href="about.html#our-policies">Our Policies</a>
+                            <a href="about.html#reviews">Testimonials & Reviews</a>
+                            <a href="about.html#contact-us">Contact Us</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -143,13 +186,17 @@
                 <aside class="filters-sidebar">
                     <div class="filter-group">
                         <h3 class="filter-title">Categories</h3>
-                        <div class="category-filter-buttons">
-                            <button class="category-filter-btn" data-category="all">★ All</button>
+                        <div class="category-filter-list">
+                            <button class="category-filter-btn active" data-category="all" data-action="filter">★ All</button>
+                            <button class="category-filter-btn" data-action="open-custom-modal">Customized Jewelry <span class="category-tag">Bespoke</span></button>
                             <button class="category-filter-btn" data-category="necklaces">Necklaces</button>
+                            <button class="category-filter-btn" data-category="jewelry-sets">Jewelry sets</button>
+                            <button class="category-filter-btn" data-category="earrings">Earrings</button>
                             <button class="category-filter-btn" data-category="rings">Rings</button>
                             <button class="category-filter-btn" data-category="bracelets">Bracelets</button>
-                            <button class="category-filter-btn" data-category="watches">Watches</button>
                             <button class="category-filter-btn" data-category="anklets">Anklets</button>
+                            <button class="category-filter-btn" data-category="brooches">Brooches</button>
+                            <button class="category-filter-btn" data-category="waist-chains">Waist Chains</button>
                         </div>
                     </div>
                     <div class="filter-group">
@@ -168,7 +215,6 @@
                         <div class="category-filter-buttons">
                             <button class="category-filter-btn" data-metal="gold">Gold</button>
                             <button class="category-filter-btn" data-metal="silver">Silver</button>
-                            <button class="category-filter-btn" data-metal="platinum">Platinum</button>
                         </div>
                     </div>
                     <button class="cta-button secondary apply-filters-btn">Apply Filters</button>
@@ -190,191 +236,80 @@
                         </div>
                     </div>
 
-                    <!-- Product Grid -->
+                    <!-- Sub-Category Filters (hidden by default) -->
+                    <div class="sub-category-filters" id="sub-category-filters">
+                        <div class="sub-category-group" data-parent-category="necklaces">
+                            <button class="sub-category-btn active" data-sub-category="all">All Necklaces</button>
+                            <button class="sub-category-btn" data-sub-category="male-necklaces">Male/Unisex</button>
+                            <button class="sub-category-btn" data-sub-category="ladies-necklaces">Ladies</button>
+                        </div>
+                        <div class="sub-category-group" data-parent-category="rings">
+                            <button class="sub-category-btn active" data-sub-category="all">All Rings</button>
+                            <button class="sub-category-btn" data-sub-category="male-rings">Male</button>
+                            <button class="sub-category-btn" data-sub-category="diamond-rings">Diamond</button>
+                            <button class="sub-category-btn" data-sub-category="vintage-rings">Vintage</button>
+                        </div>
+                        <div class="sub-category-group" data-parent-category="bracelets">
+                            <button class="sub-category-btn active" data-sub-category="all">All Bracelets</button>
+                            <button class="sub-category-btn" data-sub-category="male-bracelets">Male</button>
+                            <button class="sub-category-btn" data-sub-category="ladies-bracelets">Ladies</button>
+                        </div>
+                        <!-- Add these to your existing sub-category-filters div -->
+                        <div class="sub-category-group" data-parent-category="earrings">
+                            <button class="sub-category-btn active" data-sub-category="all">All Earrings</button>
+                            <button class="sub-category-btn" data-sub-category="earrings">Earrings</button>
+                        </div>
+                        <div class="sub-category-group" data-parent-category="jewelry-sets">
+                            <button class="sub-category-btn active" data-sub-category="all">All Jewelry Sets</button>
+                            <button class="sub-category-btn" data-sub-category="jewelry-sets">Jewelry Sets</button>
+                        </div>
+                        <div class="sub-category-group" data-parent-category="anklets">
+                            <button class="sub-category-btn active" data-sub-category="all">All Anklets</button>
+                            <button class="sub-category-btn" data-sub-category="anklets">Anklets</button>
+                        </div>
+                        <div class="sub-category-group" data-parent-category="brooches">
+                            <button class="sub-category-btn active" data-sub-category="all">All Brooches</button>
+                            <button class="sub-category-btn" data-sub-category="brooches">Brooches</button>
+                        </div>
+                        <div class="sub-category-group" data-parent-category="waist-chains">
+                            <button class="sub-category-btn active" data-sub-category="all">All Waist Chains</button>
+                            <button class="sub-category-btn" data-sub-category="waist-chains">Waist Chains</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Grid for single category view -->
                     <div class="product-grid" id="shop-product-grid">
-                        <!-- Product Card 1 -->
-                        <div class="product-card"
-                             data-order="1" data-name="Solitaire Diamond Ring"
-                             data-price="1800" data-category="rings" data-metal="platinum"
-                             data-image="rings-icon.png"
-                             data-description="Experience timeless elegance with this classic solitaire ring. It features a single, magnificent 0.75-carat diamond, masterfully set on a polished platinum band that enhances its brilliance. A perfect symbol for engagements or a statement of sophisticated taste.">
+                        <!-- Products will be dynamically rendered here. Below are placeholder examples. -->
+                        <!-- This grid will be hidden when "All" categories are shown -->
+                    </div>
+
+                    <!-- Container for "All" products view with carousels -->
+                    <div id="all-products-view">
+                        <!-- Category carousels will be dynamically injected here -->
+                        <div class="product-card" data-category="necklaces" data-price="1100" data-metal="silver" style="display: none;">
                             <div class="product-card-image">
-                                <a href="#"><img src="rings-icon.png" alt="Solitaire Diamond Ring"></a>
-                                <button class="cta-button overview-btn">Overview</button>
+                                <a href="#"><img src="Necklace-icon.png" alt="Celestial Moon Necklace"></a>
                             </div>
                             <div class="product-card-details">
-                                <h3 class="product-name"><a href="shop.html">Solitaire Diamond Ring</a></h3>
-                                <p class="product-price">$1,800</p>
+                                <h3 class="product-name"><a href="#">Celestial Moon Necklace</a></h3>
+                                <p class="product-price">$1,100</p>
                                 <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-ring-1">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
+                                    <button class="cta-button secondary js-add-to-cart">Add to Cart</button>
+                                    <button class="cta-button tertiary overview-btn">Overview</button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product Card 2 -->
-                        <div class="product-card" 
-                             data-order="2" data-name="Celestial Moon Necklace"
-                             data-price="950" data-category="necklaces" data-metal="silver"
-                             data-image="Necklace-icon.png"
-                             data-description="Inspired by the night sky, this elegant necklace features a diamond-studded crescent moon and star crafted from fine sterling silver. It's a versatile piece that adds a touch of celestial magic to both formal events and everyday wear.">
+                        <div class="product-card" data-category="bracelets" data-price="2500" data-metal="gold" style="display: none;">
                             <div class="product-card-image">
-                                <a href="#"><img src="Necklace-icon.png" alt="Pearl Strand Necklace"></a>
-                                <span class="product-badge">New</span>
-                                <button class="cta-button overview-btn">Overview</button>
+                                <a href="#"><img src="bracelet-icon.png" alt="Diamond Tennis Bracelet"></a>
+                                <span class="product-badge">Bestseller</span>
                             </div>
                             <div class="product-card-details">
-                                <h3 class="product-name"><a href="shop.html">Pearl Strand Necklace</a></h3>
-                                <p class="product-price">$950</p>
+                                <h3 class="product-name"><a href="#">Diamond Tennis Bracelet</a></h3>
+                                <p class="product-price">$2,500</p>
                                 <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-necklace-1">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ... more product cards ... -->
-                        <div class="product-card" 
-                             data-order="3" data-name="Two-Tone Chronograph Watch"
-                             data-price="4200" data-category="watches" data-metal="gold,silver"
-                             data-image="watches-icon.png"
-                             data-description="A masterpiece of horology, this high-performance watch combines a sleek black dial with a two-tone gold and stainless steel strap. Designed for precision and style, it features a date display and three fully functional sub-dials.">
-                            <div class="product-card-image">
-                                <a href="#"><img src="watches-icon.png" alt="Chronograph Watch"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="shop.html">Chronograph Watch</a></h3>
-                                <p class="product-price">$4,200</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-watch-1">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card" 
-                             data-order="4" data-name="Diamond Tennis Bracelet"
-                             data-price="2300" data-category="bracelets" data-metal="gold"
-                             data-image="bracelet-icon.png"
-                             data-description="An iconic piece of luxury, this tennis bracelet features a flexible strand of dazzling, ethically-sourced diamonds set in 18k yellow gold. It's a radiant expression of timeless glamour.">
-                            <div class="product-card-image">
-                                <a href="shop.html"><img src="bracelet-icon.png" alt="Gold Bangle Bracelet"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Gold Bangle Bracelet</a></h3>
-                                <p class="product-price">$1,300</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-bracelet-1">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card" 
-                             data-order="5" data-name="Aura Diamond Pendant"
-                             data-price="1125" data-category="necklaces" data-metal="gold"
-                             data-image="others-icon.png"
-                             data-description="This exquisite pendant features a central cluster of brilliant diamonds, creating an aura of light. Set in 14k white gold, it hangs from a delicate chain, adding a touch of royal elegance to any outfit.">
-                            <div class="product-card-image">
-                                <a href="shop.html"><img src="others-icon.png" alt="Sapphire Pendant"></a>
-                                <span class="product-badge">Sale</span>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Sapphire Pendant</a></h3>
-                                <p class="product-price"><span class="original-price" style="text-decoration: line-through; font-size: 0.9em; opacity: 0.7; margin-right: 8px;">$1,500</span>$1,125</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-pendant-1">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card" 
-                             data-order="6" data-name="Sparkle Chain Anklet"
-                             data-price="450" data-category="anklets" data-metal="silver"
-                             data-image="anklet-icon.png"
-                             data-description="Add a touch of sparkle to your step with this playful yet elegant anklet. A fine sterling silver chain is adorned with delicate, shimmering beads and a dangling charm. Perfect for sunny days and warm evenings.">
-                            <div class="product-card-image">
-                                <a href="shop.html"><img src="anklet-icon.png" alt="Silver Chain Anklet"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Silver Chain Anklet</a></h3>
-                                <p class="product-price">$450</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-anklet-1">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Extra cards for filtering demo -->
-                        <div class="product-card"
-                             data-order="7" data-name="Gold Eternity Ring"
-                             data-price="850" data-category="rings" data-metal="gold"
-                             data-image="rings-icon.png"
-                             data-description="A symbol of endless love, this 14k gold eternity band is lined with meticulously set diamonds for a continuous, captivating sparkle.">
-                            <div class="product-card-image">
-                                <a href="#"><img src="rings-icon.png" alt="Gold Eternity Ring"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Gold Eternity Ring</a></h3>
-                                <p class="product-price">$850</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-ring-2">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card"
-                             data-order="8" data-name="Silver Bangle Bracelet"
-                             data-price="720" data-category="bracelets" data-metal="silver"
-                             data-image="bracelet-icon.png"
-                             data-description="Sleek and modern, this polished sterling silver bangle offers a minimalist aesthetic that's perfect for stacking or wearing alone.">
-                            <div class="product-card-image">
-                                <a href="#"><img src="bracelet-icon.png" alt="Silver Bangle Bracelet"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Silver Bangle Bracelet</a></h3>
-                                <p class="product-price">$720</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-bracelet-2">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card"
-                             data-order="9" data-name="Classic Gold Watch"
-                             data-price="3500" data-category="watches" data-metal="gold"
-                             data-image="watches-icon.png"
-                             data-description="An heirloom in the making. This classic timepiece features a champagne dial, 18k gold case, and a genuine leather strap for ultimate comfort and style.">
-                            <div class="product-card-image">
-                                <a href="#"><img src="watches-icon.png" alt="Classic Gold Watch"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Classic Gold Watch</a></h3>
-                                <p class="product-price">$3,500</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-watch-2">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card"
-                             data-order="10" data-name="Gold Chain Anklet"
-                             data-price="600" data-category="anklets" data-metal="gold"
-                             data-image="anklet-icon.png"
-                             data-description="A delicate 14k gold chain anklet that adds a subtle touch of luxury to any look. Features a secure clasp and an adjustable length for the perfect fit.">
-                            <div class="product-card-image">
-                                <a href="#"><img src="anklet-icon.png" alt="Gold Chain Anklet"></a>
-                                <button class="cta-button overview-btn">Overview</button>
-                            </div>
-                            <div class="product-card-details">
-                                <h3 class="product-name"><a href="#">Gold Chain Anklet</a></h3>
-                                <p class="product-price">$600</p>
-                                <div class="product-card-actions">
-                                    <button class="cta-button secondary js-add-to-cart" data-product-id="shop-anklet-2">Add to Cart</button>
-                                    <button class="cta-button tertiary">Compare</button>
+                                    <button class="cta-button secondary js-add-to-cart">Add to Cart</button>
+                                    <button class="cta-button tertiary overview-btn">Overview</button>
                                 </div>
                             </div>
                         </div>
@@ -410,8 +345,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQs</a></li>
+                        <li><a href="about.html#contact-us">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -430,18 +364,18 @@
 
                     <!-- Social Media Icons Section -->
                     <div class="social-icons">
-                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                        <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18 6l-6 6-6-6"></path><path d="M6 18l6-6 6 6"></path></svg></a>
-                        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16 4h-4a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4z"></path><circle cx="12" cy="12" r="4"></circle></svg></a>
-                        <a href="#" aria-label="Snapchat"><svg viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path><path d="M7.5 12.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5S9.83 11 9 11s-1.5.67-1.5 1.5zm6 0c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path></svg></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="customer-service-links">
-                    <a href="#">Shipping & Returns</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
+                    <a href="about.html#our-policies">Shipping & Returns</a>
+                    <a href="about.html#our-policies">Privacy Policy</a>
+                    <a href="about.html#our-policies">Terms & Conditions</a>
                 </div>
                 <div class="contact-info">
                     <span>Email: <a href="mailto:support@luxtivejewelry.com">support@luxtivejewelry.com</a></span>
@@ -465,9 +399,34 @@
         </div>
     </div>
 
+    <!-- Custom Jewelry Modal -->
+    <div class="quick-view-modal" id="custom-jewelry-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header" style="text-align: center; margin-bottom: 2rem;">
+                <h2>Create Your Bespoke Jewelry</h2>
+                <p style="color: var(--text-light); font-size: 0.9rem; max-width: 450px; margin: 0.5rem auto 0;">Describe your vision, and our artisans will help bring it to life.</p>
+            </div>
+            <form id="custom-jewelry-form">
+                <div class="form-group">
+                    <label for="custom-description">Describe your desired piece</label>
+                    <textarea id="custom-description" rows="6" placeholder="e.g., A gold necklace with the initial 'J', featuring a small sapphire..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>How would you like to send your request?</label>
+                    <div class="contact-method-selector">
+                        <label><input type="radio" name="contact-method" value="whatsapp" checked> WhatsApp</label>
+                        <label><input type="radio" name="contact-method" value="gmail"> Gmail</label>
+                    </div>
+                </div>
+                <button type="submit" class="cta-button primary" style="width: 100%;">Send Request</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Compare Modal -->
     <div class="quick-view-modal" id="compare-modal">
-        <div class="modal-content">
+        <div class="modal-content wide">
             <button class="close-modal" id="close-compare-modal">&times;</button>
             <div class="modal-header" style="text-align: center; margin-bottom: 2rem;">
                 <h2>Compare Products</h2>
@@ -478,12 +437,11 @@
         </div>
     </div>
     
+    <!-- Add to Cart Notification -->
+    <div id="toast-notification" class="toast-notification"></div>
+
     <script src="shop.js"></script>
 
 </body>
 
-
 </html>
-
-
-
