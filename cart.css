@@ -1,0 +1,556 @@
+@import url('styles.css');
+
+/*          Cart Page Layout           */
+.cart-main {
+    padding-top: 120px; 
+    padding-bottom: 6rem;
+    background-color: var(--background);
+}
+
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cart-header h1 {
+    font-size: 2.5rem;
+}
+
+.continue-shopping-link {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.continue-shopping-link:hover {
+    letter-spacing: 0.5px;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* =================================== */
+/*          Cart Items List            */
+/* =================================== */
+
+.cart-items-header {
+    display: grid;
+    grid-template-columns: 100px 2fr 1fr 1fr 1fr 50px;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-light);
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header-product {
+    grid-column: 1 / 3;
+}
+
+.header-quantity,
+.header-price,
+.header-subtotal {
+    text-align: right;
+}
+
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 100px 2fr 1fr 1fr 1fr 50px;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cart-item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+.item-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.item-metal {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.item-price-mobile {
+    display: none;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-light);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    -moz-appearance: textfield;
+}
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cart-item-price-desktop, .cart-item-subtotal {
+    font-weight: 600;
+    text-align: right;
+}
+
+.remove-btn {
+    background: none;
+    border: 1px solid var(--border-light);
+    color: var(--text-light);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.remove-btn:hover {
+    background-color: #d9534f;
+    color: var(--primary-white);
+    border-color: #d9534f;
+}
+
+/* =================================== */
+/*      Order Summary & Payment        */
+/* =================================== */
+
+.order-summary-wrapper {
+    position: sticky;
+    top: 120px;
+}
+
+.order-summary {
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+.payment-section {
+    margin-top: 3rem;
+}
+
+.delivery-section {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    border: 1px solid var(--border-light);
+}
+
+.delivery-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.delivery-section .form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.delivery-section .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.delivery-section .form-control {
+    width: 100%;
+    padding: 0.8rem 2.5rem 0.8rem 1rem; /* Add padding for custom arrow */
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background-color: var(--primary-white);
+    font-size: 1rem;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: var(--transition);
+}
+.delivery-section #ghana-delivery-fields .form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    -webkit-appearance: textfield; /* Reset appearance for text/tel inputs */
+}
+
+/* Style for the dropdown arrow on the select element only */
+.delivery-section .form-group.has-select::after {
+    content: '\f078'; /* Font Awesome chevron-down icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 70%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    pointer-events: none; /* Allows clicks to pass through to the select */
+    transition: var(--transition);
+}
+
+.delivery-section .form-control:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(200, 166, 92, 0.2);
+}
+
+.summary-title, .payment-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.summary-row span:last-child {
+    font-weight: 600;
+}
+
+.total-row {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    margin-top: 1rem;
+}
+
+.total-row span {
+    font-weight: 700;
+}
+
+/* Payment Tabs */
+.payment-tabs {
+    display: flex;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.payment-tab-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.payment-tab-btn.active {
+    background-color: var(--accent-gold);
+    color: var(--primary-white);
+}
+
+.payment-region-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-white);
+    background-color: var(--accent-gold);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.payment-tab-btn.active .payment-region-tag {
+    color: var(--accent-gold);
+    background-color: var(--primary-white);
+}
+.payment-content {
+    display: none;
+}
+
+.payment-content.active {
+    display: block;
+}
+
+/* Form Styles */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+
+.momo-options, .card-logos {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Momo Input with Auto-detect Logo --- */
+.momo-input-wrapper {
+    position: relative;
+}
+
+#momo-number {
+    padding-right: 60px; /* Make space for the logo */
+}
+
+.momo-provider-logo {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Hidden by default */
+}
+
+.momo-provider-logo.visible {
+    opacity: 1;
+}
+
+/* --- Card Input with Auto-detect Logo --- */
+.card-input-wrapper {
+    position: relative;
+}
+
+#card-number {
+    padding-right: 60px; /* Make space for the logo */
+}
+
+.card-type-logo {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.card-type-logo.visible {
+    opacity: 1;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none; /* Hidden by default */
+}
+
+.form-text-muted {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+/* --- Payment Logo Styling --- */
+.card-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* Space between logo and text */
+}
+
+/* --- Payment Logo Styling --- */
+.momo-logo-wrapper,
+.card-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* Space between logo and text */
+}
+
+.card-logo-wrapper span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-logos { gap: 2rem; }
+
+.card-logo { height: 35px; }
+
+.place-order-btn {
+    width: 100%;    
+    margin-top: 2rem;
+}
+
+.place-order-btn:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.delivery-info-box {
+    background-color: #f0f5fb;
+    border-left: 4px solid var(--accent-gold);
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+}
+
+.delivery-info-box p {
+    margin: 0;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.exchange-policy {
+    margin-top: 0.75rem !important;
+    font-size: 0.9rem;
+    color: var(--text-light) !important;
+}
+
+.delivery-fee-note {
+    margin-top: 1rem !important;
+    font-size: 0.9rem;
+    color: var(--text-dark) !important;
+}
+
+/* --- Toast Notification --- */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    background-color: var(--text-dark);
+    color: var(--primary-white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.toast-notification.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+/* =================================== */
+/*         Responsive Design           */
+/* =================================== */
+
+@media (max-width: 992px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+    .order-summary-wrapper {
+        position: static;
+    }
+}
+@media (max-width: 768px) {
+    .cart-items-header {
+        display: none;
+    }
+
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 0 20px;
+    }
+    .cart-header h1 {
+        font-size: 2rem;
+    }
+    .cart-item {
+        grid-template-columns: 80px 1fr 80px;
+        grid-template-areas: 
+            "image details remove"
+            "image quantity subtotal";
+        row-gap: 1rem;
+    }
+    .cart-item-image { grid-area: image; }
+    .cart-item-details { grid-area: details; }
+    .cart-item-quantity { grid-area: quantity; }
+    .cart-item-subtotal { grid-area: subtotal; }
+    .cart-item-remove { grid-area: remove; justify-self: end; }
+
+    .cart-item-price-desktop { display: none; }
+    .item-price-mobile {
+        display: block;
+        font-weight: 600;
+        color: var(--accent-gold);
+        margin-top: 0.5rem;
+    }
+    .cart-item-details { padding-right: 1rem; }
+    .cart-item-subtotal { text-align: right; }
+}
+
+@media (max-width: 480px) {
+    .momo-logo-placeholder, .card-logo-placeholder {
+        width: 60px;
+    }
+}

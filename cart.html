@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Luxtive Jewelry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="Luxtive Homepage">
+                <img src="luxtive-logo.png" alt="Luxtive Logo" class="logo-image">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="index.html#categories">Categories</a>
+                        <a href="index.html#promotions">Promotions</a>
+                        <a href="index.html#new-arrivals">New Arrivals</a>
+                        <a href="index.html#most-loved">Most Loved</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="shop.html?category=necklaces">Necklaces</a>
+                        <a href="shop.html?category=rings">Rings</a>
+                        <a href="shop.html?category=bracelets">Bracelets</a>
+                        <a href="shop.html?category=earrings">Earrings</a>
+                        <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html#our-purpose">Our Purpose</a>
+                        <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                        <a href="about.html#our-policies">Our Policies</a>
+                        <a href="about.html#reviews">Testimonials & Reviews</a>
+                        <a href="about.html#contact-us">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <button class="icon-btn mobile-search-toggle" id="mobile-search-toggle" aria-label="Open search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="wishlist-btn" aria-label="Open wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <!-- Mobile Menu Toggle -->
+                <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <div class="mobile-nav-header">
+            <a href="/" class="nav-logo" aria-label="Luxtive Homepage">
+                <img src="luxtive-logo.png" alt="Luxtive Logo" class="logo-image">
+            </a>
+            <button class="close-menu" id="close-menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18"></path>
+                    <path d="M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                <div class="mobile-dropdown-menu">
+                    <a href="index.html#categories">Categories</a>
+                    <a href="index.html#promotions">Promotions</a>
+                    <a href="index.html#new-arrivals">New Arrivals</a>
+                    <a href="index.html#most-loved">Most Loved</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="shop.html" class="mobile-nav-link">Shop</a>
+                <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                <div class="mobile-dropdown-menu">
+                    <a href="shop.html?category=necklaces">Necklaces</a>
+                    <a href="shop.html?category=rings">Rings</a>
+                    <a href="shop.html?category=bracelets">Bracelets</a>
+                    <a href="shop.html?category=earrings">Earrings</a>
+                    <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main class="cart-main">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h1>Your Shopping Bag</h1>
+                <a href="shop.html" class="continue-shopping-link">Continue Shopping &rarr;</a>
+            </div>
+
+            <div class="cart-layout">
+                <!-- Left Column: Cart Items -->
+                <div class="cart-items-column">
+                    <div class="cart-items-header">
+                        <div class="header-product">Product</div>
+                        <div class="header-quantity">Quantity</div>
+                        <div class="header-price">Unit Price</div>
+                        <div class="header-subtotal">Cost</div>
+                        <div class="header-remove"></div>
+                    </div>
+                <div class="cart-items-list">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+
+                <div class="payment-section">
+                    <h2 class="payment-title">Payment Method</h2>
+                    <div class="form-group">
+                        <label for="customer-email">Email for Receipt</label>
+                        <input type="email" id="customer-email" placeholder="Enter your email address" autocomplete="email">
+                        <p class="form-text-muted">Your order receipt will be sent to this email address.</p>
+                    </div>
+                    <div class="payment-tabs">
+                        <button class="payment-tab-btn active" data-target="mobile-money-content">Mobile Money <span class="payment-region-tag">Ghana Only</span></button>
+                        <button class="payment-tab-btn" data-target="card-content">Credit/Debit Card</button>
+                    </div>
+
+                    <!-- Mobile Money Content -->
+                    <div class="payment-content active" id="mobile-money-content">
+                        <div class="form-group">
+                            <label for="momo-number">Mobile Number</label>
+                            <div class="momo-input-wrapper">
+                                <input type="tel" id="momo-number" placeholder="e.g. 024 123 4567" autocomplete="off">
+                                <div id="momo-provider-logo" class="momo-provider-logo"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Payment Content -->
+                    <div class="payment-content" id="card-content">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <div class="card-input-wrapper">
+                                <input type="tel" id="card-number" placeholder="•••• •••• •••• ••••" autocomplete="cc-number" maxlength="19">
+                                <div id="card-type-logo" class="card-type-logo"></div>
+                            </div>
+                            <p id="card-error-message" class="error-message"></p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="tel" id="expiry-date" placeholder="MM / YY" autocomplete="cc-exp">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvc">CVC</label>
+                                <input type="tel" id="cvc" placeholder="•••" autocomplete="cc-csc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+                <!-- Right Column: Order Summary & Payment -->
+                <div class="order-summary-wrapper">
+                    <div class="order-summary">
+                        <h2 class="summary-title">Order Summary</h2>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$3,250.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span id="summary-total">$3,250.00</span>
+                        </div>
+                    </div>
+
+                    <div class="delivery-section">
+                        <h2 class="delivery-title">Delivery Information</h2>
+                        <div class="form-group has-select">
+                            <label for="delivery-location">Select Delivery Location</label>
+                            <select id="delivery-location" name="delivery-location" class="form-control">
+                                <option value="accra" selected>Accra & Environs</option>
+                                <option value="outside-accra">Outside Accra (Within Ghana)</option>
+                                <option value="international">International</option>
+                            </select>
+                        </div>
+                        <div id="ghana-town-field">
+                            <div class="form-group">
+                                <label for="delivery-town">Town</label>
+                                <input type="text" id="delivery-town" class="form-control" placeholder="Enter your town">
+                            </div>
+                        </div>
+                        <div id="international-delivery-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="delivery-country">Country</label>
+                                <input type="text" id="delivery-country" class="form-control" placeholder="Enter your country">
+                            </div>
+                            <div class="form-group">
+                                <label for="delivery-state">State / Region</label>
+                                <input type="text" id="delivery-state" class="form-control" placeholder="Enter your state or region">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-phone">Telephone Number</label>
+                            <input type="tel" id="delivery-phone" class="form-control" placeholder="e.g. 024 123 4567">
+                        </div>
+                        <div class="delivery-info-box">
+                            <p id="delivery-time-info">Delivery within Accra and its environs are made between 24-48 hours.</p>
+                            <p class="exchange-policy"><strong>Note:</strong> Exchanges should be made within 72 hours of delivery.</p>
+                            <p class="delivery-fee-note"><strong>Note:</strong> The delivery fee is not included in the total and will be paid separately to the rider upon delivery.</p>
+                        </div>
+                    </div>
+
+                    <button class="cta-button primary place-order-btn" disabled>Place Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo" aria-label="Luxtive Homepage">
+                        <img src="luxtive-logo.png" alt="Luxtive Logo" class="logo-image">
+                    </a>
+                    <p class="footer-tagline">Crafting timeless stories in every piece of jewelry.</p>
+                </div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html#contact-us">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-middle">
+                <div class="newsletter-signup">
+                    <h4 class="footer-heading">Join Our World</h4>
+                    <p>Be the first to know about new arrivals, exclusive offers, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="cta-button primary">Subscribe</button>
+                    </form>
+                </div>
+                <div class="social-links">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="customer-service-links">
+                    <a href="about.html#our-policies">Shipping & Returns</a>
+                    <a href="about.html#our-policies">Privacy Policy</a>
+                    <a href="about.html#our-policies">Terms & Conditions</a>
+                </div>
+                <div class="contact-info">
+                    <span>Email: <a href="mailto:support@luxtivejewelry.com">support@luxtivejewelry.com</a></span>
+                    <span>Phone: <a href="tel:+233123456789">+233 123 456 789</a></span>
+                </div>
+                <p class="copyright">&copy; 2025 Luxtive Jewelries. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
