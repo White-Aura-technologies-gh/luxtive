@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Luxtive Jewelry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-white: #ffffff;
+            --background: #fafafa;
+            --accent-gold: #d4af37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-light: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Typography Enhancement */
+        .hero-title {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            margin-bottom: 1.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-weight: 600;
+            position: relative;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--primary-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .nav-logo img {
+            height: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Desktop Dropdown Styles */
+        .nav-item.has-dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            margin-left: 0.3rem;
+            font-size: 0.7rem;
+            opacity: 0.7;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item.has-dropdown:hover .dropdown-toggle {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            list-style: none;
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            top: 120%;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f9f9f9;
+            color: var(--accent-gold);
+            padding-left: 1.7rem;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .icon-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        .cart-count, .wishlist-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-gold);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--primary-white);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .mobile-dropdown-toggle {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav-item.active .mobile-dropdown-toggle {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .mobile-dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f9f9f9;
+        }
+
+        .mobile-nav-item.active .mobile-dropdown-menu {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            color: var(--text-light);
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-menu a:hover {
+            color: var(--accent-gold);
+            background: #f5f5f5;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            position: relative;
+        }
+
+        .desktop-search {
+            display: none;
+        }
+
+        .mobile-search {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--primary-white);
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-search.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .search-btn {
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #c19d2e;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #f8f8f8 0%, var(--background) 100%);
+            display: flex;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                min-height: 60vh;
+                padding: 2rem;
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 2rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Enhanced Purpose Section - Mobile Responsive */
+        .our-purpose {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #f8f8f8 0%, #ffffff 100%);
+        }
+
+        @media (min-width: 768px) {
+            .our-purpose {
+                padding: 6rem 0;
+            }
+        }
+
+        .purpose-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .purpose-container {
+                flex-direction: row;
+                gap: 4rem;
+                padding: 0 2rem;
+            }
+        }
+
+        .purpose-content {
+            flex: 1;
+            width: 100%;
+        }
+
+        .purpose-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .purpose-image-placeholder {
+            flex: 1;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        @media (max-width: 767px) {
+            .purpose-image-placeholder {
+                transform: none;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .purpose-image-placeholder:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .purpose-image-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .purpose-image-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Enhanced Features Section - Mobile Responsive */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        .feature {
+            background: var(--primary-white);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .feature {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-gold), #d4af37);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        .feature:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature i {
+            font-size: 2.25rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .feature i {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .feature:hover i {
+            transform: scale(1.1);
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .feature h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .feature p {
+            color: var(--text-light);
+        }
+
+        /* Section Padding Mobile Optimization */
+        .promo-spotlight {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .promo-spotlight {
+                padding: 6rem 0;
+            }
+        }
+
+        .most-loved {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .most-loved {
+                padding: 6rem 0;
+            }
+        }
+
+        /* Enhanced Accordion - Mobile Responsive */
+        .policy-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .policy-accordion {
+                padding: 0;
+            }
+        }
+
+        .policy-accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-light);
+        }
+
+        .policy-accordion-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: var(--primary-white);
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .policy-accordion-header {
+                padding: 1.5rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        .policy-accordion-header::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .policy-accordion-header::after {
+                font-size: 1.5rem;
+            }
+        }
+
+        .policy-accordion-item.active .policy-accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .policy-accordion-header:hover {
+            background: #f9f9f9;
+        }
+
+        .policy-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #fcfcfc;
+        }
+
+        .policy-accordion-content > * {
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .policy-accordion-content > * {
+                padding: 0 2rem;
+            }
+        }
+
+        .policy-accordion-content p:first-child {
+            padding-top: 1.25rem;
+        }
+
+        .policy-accordion-content p:last-child {
+            padding-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .policy-accordion-content p:first-child {
+                padding-top: 1.5rem;
+            }
+            
+            .policy-accordion-content p:last-child {
+                padding-bottom: 1.5rem;
+            }
+        }
+
+        .policy-accordion-content ul {
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        .policy-accordion-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Enhanced Testimonials Section - Mobile Responsive */
+        .testimonials-split {
+            display: flex;
+            flex-direction: column;
+            min-height: auto;
+        }
+
+        @media (min-width: 1024px) {
+            .testimonials-split {
+                flex-direction: row;
+                min-height: 550px;
+            }
+        }
+
+        .testimonial-content-column {
+            flex: 1;
+            padding: 3rem 1.5rem;
+            display: flex;
+            align-items: center;
+            order: 2;
+            background: var(--background);
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-content-column {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonial-content-column {
+                padding: 4rem;
+                order: 1;
+            }
+        }
+
+        .testimonial-image-column {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            order: 1;
+        }
+
+        @media (min-width: 1024px) {
+            .testimonial-image-column {
+                min-height: auto;
+                order: 2;
+            }
+        }
+
+        .testimonial-image-column img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-image-column:hover img {
+            transform: scale(1.05);
+        }
+
+        .testimonial-image-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1), transparent);
+            z-index: 1;
+        }
+
+        /* Enhanced Form Elements - Mobile Responsive */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-group label {
+                font-size: 1rem;
+            }
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .star-rating-input {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .star-rating-input {
+                justify-content: flex-start;
+            }
+        }
+
+        .star-rating-input i {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .star-rating-input i:hover,
+        .star-rating-input i.active {
+            color: var(--accent-gold);
+        }
+
+        /* Enhanced CTA Button - Mobile Responsive */
+        .cta-button.primary {
+            background: linear-gradient(to right, var(--accent-gold), #d4af37);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button.primary {
+                padding: 0.75rem 2rem;
+                width: auto;
+                display: inline-block;
+                margin: 0;
+            }
+        }
+
+        .cta-button.primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button.primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-button.primary:hover {
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Form Row Responsive */
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .form-row {
+                flex-direction: row;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-top {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .footer-brand {
+            text-align: center;
+            flex: 1;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin: 0 auto 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-middle {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+        }
+
+        @media (min-width: 768px) {
+            .footer-middle {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: center;
+            }
+
+            .footer-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        }
+
+        .newsletter-signup {
+            text-align: center;
+            flex: 1;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .newsletter-form .cta-button.primary {
+            border-radius: 4px;
+            margin: 0; 
+        }
+
+        .social-links {
+            text-align: center;
+            flex: 1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .footer-heading {
+            font-weight: 600; /* Bolder titles */
+            color: #E0E0E0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* Tighter mobile spacing */
+            text-align: center;
+            padding-top: 1.5rem;
+        }
+
+        .customer-service-links {
+            display: flex;
+            gap: 1rem 1.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .customer-service-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .customer-service-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1.5rem;
+            color: #E0E0E0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Animation Enhancements */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+            .feature:hover {
+                transform: none;
+            }
+            
+            .purpose-image-placeholder:hover {
+                transform: none;
+            }
+            
+            .purpose-image-placeholder:hover img {
+                transform: none;
+            }
+            
+            .feature:hover::before {
+                transform: scaleX(1);
+            }
+            
+            .feature:hover i {
+                transform: none;
+            }
+        }
+
+        /* Desktop Footer Enhancements */
+        @media (min-width: 992px) {
+            .footer-middle {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+                gap: 3rem;
+                padding-bottom: 2.5rem;
+                border-bottom: 1px solid #444; /* Divider line */
+            }
+
+            .newsletter-signup, .social-links {
+                text-align: left;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                padding-top: 2rem;
+                gap: 1rem; /* Tighter desktop spacing */
+            }
+        }
+
+        /* Desktop Navigation */
+        @media (min-width: 769px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+            
+            .desktop-search {
+                display: block;
+            }
+            
+            .mobile-search-toggle {
+                display: none;
+            }
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                align-items: center;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-search-toggle {
+                display: block;
+            }
+            
+            .footer-nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .customer-service-links {
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+                align-items: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="Luxtive Homepage">
+                <img src="luxtive-logo.png" alt="Luxtive Logo" class="logo-image">
+            </a>
+            
+            <!-- Desktop Search -->
+            <div class="search-container desktop-search">
+                <form class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search for jewelry, collections...">
+                    <button class="search-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="index.html#categories">Categories</a>
+                        <a href="index.html#promotions">Promotions</a>
+                        <a href="index.html#new-arrivals">New Arrivals</a>
+                        <a href="index.html#most-loved">Most Loved</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="shop.html?category=necklaces">Necklaces</a>
+                        <a href="shop.html?category=rings">Rings</a>
+                        <a href="shop.html?category=bracelets">Bracelets</a>
+                        <a href="shop.html?category=earrings">Earrings</a>
+                        <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html#our-purpose">Our Purpose</a>
+                        <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                        <a href="about.html#our-policies">Our Policies</a>
+                        <a href="about.html#reviews">Testimonials & Reviews</a>
+                        <a href="about.html#contact-us">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="icon-btn mobile-search-toggle" id="mobile-search-toggle" aria-label="Open search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="cart-btn" aria-label="Open cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="icon-btn" id="wishlist-btn" aria-label="Open wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+            
+            <!-- Mobile Search -->
+            <div class="search-container mobile-search" id="mobile-search">
+                <form class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search jewelry, collections...">
+                    <button class="search-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                        <span>Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <div class="mobile-nav-header">
+            <a href="/" class="nav-logo" aria-label="Luxtive Homepage">
+                <img src="luxtive-logo.png" alt="Luxtive Logo" class="logo-image">
+            </a>
+            <button class="close-menu" id="close-menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18"></path>
+                    <path d="M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                <div class="mobile-dropdown-menu">
+                    <a href="index.html#categories">Categories</a>
+                    <a href="index.html#promotions">Promotions</a>
+                    <a href="index.html#new-arrivals">New Arrivals</a>
+                    <a href="index.html#most-loved">Most Loved</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="shop.html" class="mobile-nav-link">Shop</a>
+                <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                <div class="mobile-dropdown-menu">
+                    <a href="shop.html?category=necklaces">Necklaces</a>
+                    <a href="shop.html?category=rings">Rings</a>
+                    <a href="shop.html?category=bracelets">Bracelets</a>
+                    <a href="shop.html?category=earrings">Earrings</a>
+                    <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="about.html" class="mobile-nav-link">About Us</a>
+                <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                <div class="mobile-dropdown-menu">
+                    <a href="about.html#our-purpose">Our Purpose</a>
+                    <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                    <a href="about.html#our-policies">Our Policies</a>
+                    <a href="about.html#reviews">Testimonials & Reviews</a>
+                    <a href="about.html#contact-us">Contact Us</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <main style="padding-top: 80px;">
+        <!-- Enhanced Hero Section -->
+        <section class="hero">
+            <div class="hero-content text-center">
+                <h1 class="hero-title fade-in">ELEVATING ELEGANCE</h1>
+                <p class="hero-subtitle fade-in delay-1">Discover our exclusive collection of luxury jewelry, meticulously crafted to transform your style and create unforgettable moments.</p>
+                <a href="shop.html" class="cta-button primary fade-in delay-2" style="margin-top: 2rem;">Explore Collection</a>
+            </div>
+        </section>
+
+        <!-- Our Purpose Section -->
+        <section id="our-purpose" class="our-purpose">
+            <div class="purpose-container">
+                <div class="purpose-content fade-in">
+                    <h2 class="section-title">Our Purpose</h2>
+                    <div class="purpose-text">
+                        <p>At LuxTive Jewelry, our fundamental purpose is to provide our clients with exclusive, luxury-quality, and durable jewelry pieces that add the perfect finishing touch to elevate any outfit or look.</p>
+                        <p>Our creations are designed to make you the center of attention in any setting, while also serving as the perfect present or gift for that special person in your life.</p>
+                    </div>
+                </div>
+                <div class="purpose-image-placeholder fade-in delay-1">
+                    <img src="our-purpose.png" alt="Crafting jewelry">
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="why-choose-luxtive" class="promo-spotlight">
+            <div class="container text-center">
+                <h2 class="section-title fade-in">Why Choose LuxTive</h2>
+                <div class="features">
+                    <div class="feature fade-in">
+                        <i class="fas fa-gem"></i>
+                        <h3>Exclusive Designs</h3>
+                        <p>Carefully curated, uncommon pieces that stand out from mass-produced jewelry.</p>
+                    </div>
+                    <div class="feature fade-in delay-1">
+                        <i class="fas fa-award"></i>
+                        <h3>Premium Quality</h3>
+                        <p>Long-lasting pieces crafted with premium materials to stand the test of time.</p>
+                    </div>
+                    <div class="feature fade-in delay-2">
+                        <i class="fas fa-gift"></i>
+                        <h3>Elegant Packaging</h3>
+                        <p>Beautiful presentation suitable for gifting, with storage that extends jewelry lifespan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Policies Section -->
+        <section id="our-policies" class="most-loved">
+            <div class="container">
+                <h2 class="section-title text-center fade-in">Our Policies</h2>
+                <div class="policy-accordion">
+                    <div class="policy-accordion-item fade-in">
+                        <button class="policy-accordion-header">Pricing Policy</button>
+                        <div class="policy-accordion-content">
+                            <p>At Luxtive Jewelry, we believe in transparent and straightforward pricing. The price listed for each product on our website is the exact and final price for the item itself. This price reflects the quality of the materials, the intricacy of the craftsmanship, and the exclusivity of the design.</p>
+                            <p><strong>Please Note:</strong> The displayed price does not include shipping or delivery fees. These charges are calculated separately based on your delivery location and will be paid independently from the item's cost. This allows us to provide fair and accurate shipping rates for all our customers, both local and international.</p>
+                        </div>
+                    </div>
+                    <div class="policy-accordion-item fade-in delay-1">
+                        <button class="policy-accordion-header">Privacy & Image Usage Policy</button>
+                        <div class="policy-accordion-content">
+                            <p>Your privacy is of utmost importance to us. All personal information collected is used solely for the purpose of processing your order and enhancing your customer experience. We do not share your data with third parties.</p>
+                            <p><strong>Intellectual Property & Image Rights:</strong> All images, photographs, and content displayed on this website are the exclusive property of Luxtive Jewelry. They are protected by copyright law and are intended for the sole purpose of showcasing our products to our customers. Unauthorized use, reproduction, or distribution of our images for commercial purposes, including but not limited to use on other websites, social media for sales, or any form of advertising, is strictly prohibited.</p>
+                            <p>Discovery of such unauthorized use will result in immediate legal action to protect our intellectual property. We invest significantly in our product photography and branding, and we will enforce our rights to the fullest extent of the law.</p>
+                        </div>
+                    </div>
+                    <div class="policy-accordion-item fade-in delay-2">
+                        <button class="policy-accordion-header">Exchange Policy</button>
+                        <div class="policy-accordion-content">
+                            <p>We want you to be completely satisfied with your purchase. If you wish to make an exchange, please adhere to the following guidelines:</p>
+                            <ul>
+                                <li><strong>For customers within Ghana:</strong> Exchanges must be initiated within <strong>3 days (72 hours)</strong> of receiving your order. The item must be in its original, unworn condition and in its original packaging.</li>
+                                <li><strong>For international customers:</strong> Please contact our support team within 72 hours of delivery to discuss exchange options.</li>
+                                <li>All exchanges are subject to a quality assurance inspection. Items that are damaged, altered, or show signs of wear may not be eligible for an exchange.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="policy-accordion-item fade-in delay-3">
+                        <button class="policy-accordion-header">Delivery & Shipping Policy</button>
+                        <div class="policy-accordion-content">
+                            <p>We are pleased to offer both nationwide and worldwide delivery to bring our exquisite pieces to you, wherever you are.</p>
+                            <ul>
+                                <li><strong>Accra & Environs:</strong> Delivery is typically completed within <strong>24-48 hours</strong>.</li>
+                                <li><strong>Outside Accra (Within Ghana):</strong> Deliveries to other regions in Ghana generally take <strong>48-72 hours</strong>.</li>
+                                <li><strong>International Shipping:</strong> For our global customers, delivery times range from <strong>4 to 15 business days</strong>, depending on the destination country and its customs procedures.</li>
+                            </ul>
+                            <p>Please note that delivery fees are separate from the product price and are payable upon receipt of your order.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="testimonials-split">
+            <div class="testimonial-content-column">
+                <div class="testimonial-content-wrapper fade-in">
+                    <h2 class="section-title">Share Your Experience</h2>
+                    <p class="section-subtitle">We value your feedback. Let us know about your Luxtive experience or share a story about your special piece.</p>
+                    <form id="review-form" class="review-form">
+                        <div class="form-group">
+                            <label for="reviewer-name">Your Name</label>
+                            <input type="text" id="reviewer-name" placeholder="e.g., Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Rating</label>
+                            <div class="star-rating-input">
+                                <i class="far fa-star" data-value="1"></i>
+                                <i class="far fa-star" data-value="2"></i>
+                                <i class="far fa-star" data-value="3"></i>
+                                <i class="far fa-star" data-value="4"></i>
+                                <i class="far fa-star" data-value="5"></i>
+                                <input type="hidden" name="rating" id="rating-value" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-message">Your Review</label>
+                            <textarea id="review-message" rows="5" placeholder="Tell us what you think..." required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+            <div class="testimonial-image-column">
+                <img src="jewelry-display.jpg" alt="Jewelry display for reviews">
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-us" class="promo-spotlight">
+            <div class="container">
+                <h2 class="section-title text-center fade-in">Get In Touch</h2>
+                <p class="section-subtitle text-center fade-in">Have a question or a special request? We're here to help.</p>
+                <form id="contact-form" class="contact-form fade-in delay-1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-gmail">Email Address</label>
+                            <input type="email" id="contact-gmail" placeholder="your.email@gmail.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-whatsapp">WhatsApp Number (Optional)</label>
+                        <input type="tel" id="contact-whatsapp" placeholder="+233 12 345 6789">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Your Message</label>
+                        <textarea id="contact-message" rows="6" placeholder="How can we assist you today?" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo" aria-label="Luxtive Homepage">
+                        <img src="luxtive-logo.png" alt="Luxtive Logo" class="logo-image">
+                    </a>
+                    <p class="footer-tagline">Crafting timeless stories in every piece of jewelry.</p>
+                </div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html#contact-us">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-middle">
+                <div class="newsletter-signup">
+                    <h4 class="footer-heading">Join Our World</h4>
+                    <p>Be the first to know about new arrivals, exclusive offers, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="cta-button primary">Subscribe</button>
+                    </form>
+                </div>
+                <div class="social-links">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://instagram.com" aria-label="Visit our Instagram page" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" aria-label="Visit our TikTok page" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://twitter.com" aria-label="Visit our X (Twitter) page" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://snapchat.com" aria-label="Visit our Snapchat page" target="_blank"><i class="fab fa-snapchat"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="customer-service-links">
+                    <a href="about.html#our-policies">Shipping & Returns</a>
+                    <a href="about.html#our-policies">Privacy Policy</a>
+                    <a href="about.html#our-policies">Terms & Conditions</a>
+                </div>
+                <div class="contact-info">
+                    <span>Email: <a href="mailto:support@luxtivejewelry.com">support@luxtivejewelry.com</a></span>
+                    <span>Phone: <a href="tel:+233123456789">+233 123 456 789</a></span>
+                </div>
+                <p class="copyright">&copy; 2025 Luxtive Jewelries. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const overlay = document.getElementById('overlay');
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+        function toggleMobileMenu() {
+            mobileNavMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        closeMenu.addEventListener('click', toggleMobileMenu);
+        overlay.addEventListener('click', toggleMobileMenu);
+
+        // Mobile Dropdown Toggle
+        mobileNavItems.forEach(item => {
+            const toggle = item.querySelector('.mobile-dropdown-toggle');
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                item.classList.toggle('active');
+            });
+        });
+
+        // Search Toggle Functionality
+        const mobileSearchToggle = document.getElementById('mobile-search-toggle');
+        const mobileSearch = document.getElementById('mobile-search');
+
+        mobileSearchToggle.addEventListener('click', () => {
+            mobileSearch.classList.toggle('active');
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileSearch.contains(e.target) && !mobileSearchToggle.contains(e.target)) {
+                mobileSearch.classList.remove('active');
+            }
+        });
+
+        // Enhanced Star rating logic
+        document.querySelectorAll('.star-rating-input i').forEach(star => {
+            star.addEventListener('mouseover', () => {
+                const rating = star.dataset.value;
+                document.querySelectorAll('.star-rating-input i').forEach(s => {
+                    s.classList.remove('fas', 'active');
+                    s.classList.add('far');
+                    if (s.dataset.value <= rating) {
+                        s.classList.replace('far', 'fas');
+                        s.classList.add('active');
+                    }
+                });
+            });
+            
+            star.addEventListener('click', () => {
+                const rating = star.dataset.value;
+                document.getElementById('rating-value').value = rating;
+            });
+            
+            // Reset stars when mouse leaves the container
+            document.querySelector('.star-rating-input').addEventListener('mouseleave', () => {
+                const currentRating = document.getElementById('rating-value').value;
+                document.querySelectorAll('.star-rating-input i').forEach(s => {
+                    s.classList.remove('fas', 'active');
+                    s.classList.add('far');
+                    if (s.dataset.value <= currentRating) {
+                        s.classList.replace('far', 'fas');
+                        s.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Enhanced Accordion logic
+        document.querySelectorAll('.policy-accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const item = button.parentElement;
+                
+                // Close all other accordion items
+                document.querySelectorAll('.policy-accordion-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.policy-accordion-content').style.maxHeight = null;
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+                
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        });
+        
+        // Scroll animation for fade-in elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form submission handlers
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your review!');
+            this.reset();
+            document.querySelectorAll('.star-rating-input i').forEach(star => {
+                star.classList.remove('fas', 'active');
+                star.classList.add('far');
+            });
+            document.getElementById('rating-value').value = '';
+        });
+        
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+        
+        // Touch device optimizations
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+    </script>
+</body>
+</html>
