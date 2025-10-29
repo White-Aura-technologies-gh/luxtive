@@ -29,17 +29,37 @@
 
             <!-- Desktop Navigation Menu -->
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
+                <li class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="index.html#categories">Categories</a>
+                        <a href="index.html#promotions">Promotions</a>
+                        <a href="index.html#new-arrivals">New Arrivals</a>
+                        <a href="index.html#most-loved">Most Loved</a>
+                    </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item has-dropdown">
                     <a href="shop.html" class="nav-link">Shop</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="shop.html?category=necklaces">Necklaces</a>
+                        <a href="shop.html?category=rings">Rings</a>
+                        <a href="shop.html?category=bracelets">Bracelets</a>
+                        <a href="shop.html?category=earrings">Earrings</a>
+                        <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Collections</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
+                <li class="nav-item has-dropdown">
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html#our-purpose">Our Purpose</a>
+                        <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                        <a href="about.html#our-policies">Our Policies</a>
+                        <a href="about.html#reviews">Testimonials & Reviews</a>
+                        <a href="about.html#contact-us">Contact Us</a>
+                    </div>
                 </li>
             </ul>
 
@@ -54,12 +74,12 @@
 
                 <!-- Cart Icon -->
                 <button class="icon-btn" id="cart-btn" aria-label="Open cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
+                    <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
+                </button>
+                <button class="icon-btn" id="wishlist-btn" aria-label="Open wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
                 </button>
 
                 <!-- Mobile Menu Toggle -->
@@ -99,119 +119,198 @@
                 </div>
                 <ul class="mobile-nav-list">
                     <li class="mobile-nav-item">
-                        <a href="shop.html" class="mobile-nav-link">Home</a>
+                        <a href="index.html" class="mobile-nav-link">Home</a>
+                        <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-menu">
+                            <a href="index.html#categories">Categories</a>
+                            <a href="index.html#promotions">Promotions</a>
+                            <a href="index.html#new-arrivals">New Arrivals</a>
+                            <a href="index.html#most-loved">Most Loved</a>
+                        </div>
                     </li>
                     <li class="mobile-nav-item">
                         <a href="shop.html" class="mobile-nav-link">Shop</a>
+                        <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-menu">
+                            <a href="shop.html?category=necklaces">Necklaces</a>
+                            <a href="shop.html?category=rings">Rings</a>
+                            <a href="shop.html?category=bracelets">Bracelets</a>
+                            <a href="shop.html?category=earrings">Earrings</a>
+                            <a href="shop.html?category=jewelry-sets">Jewelry Sets</a>
+                        </div>
                     </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">Collections</a>
-                    </li>
-                    <li class="mobile-nav-item">
-                        <a href="#" class="mobile-nav-link">About</a>
+                    <li class="mobile-nav-item has-dropdown">
+                        <a href="about.html" class="mobile-nav-link">About Us</a>
+                        <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-menu">
+                            <a href="about.html#our-purpose">Our Purpose</a>
+                            <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
+                            <a href="about.html#our-policies">Our Policies</a>
+                            <a href="about.html#reviews">Testimonials & Reviews</a>
+                            <a href="about.html#contact-us">Contact Us</a>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Overlay for mobile menu -->
-    <div class="overlay" id="overlay"></div>
-
     <section class="hero" id="hero">
         <div class="hero-container">
-            <!-- Left Content -->
-            <div class="hero-content">
-                <div class="content-wrapper">
-                    <div class="hero-brand-name">Luxtive Jewelries</div>
-                    <h1 class="hero-title">Timeless Elegance</h1>
-                    <p class="hero-subtitle">Crafted with precision, designed for forever. Discover jewelry that tells your unique story.</p>
-                    <div class="hero-cta">
-                        <button class="cta-button primary" onclick="window.location.href='shop.html'">Shop Collection</button>
+            <!-- Mobile Layout: All content in single column -->
+            <div class="hero-content-mobile">
+                <div class="hero-brand-name">Luxtive</div>
+                
+                <!-- Text Content FIRST -->
+                <div class="hero-content">
+                    <div class="content-wrapper">
+                        <h1 class="hero-title">Timeless Elegance</h1>
+                        <p class="hero-subtitle">Crafted with precision, designed for forever. Discover jewelry that tells your unique story.</p>
                     </div>
+                </div>
+
+                <!-- Orbital System SECOND -->
+                <div class="hero-visual">
+                    <div class="orbital-system">
+                        <!-- Dynamic Central Product Display -->
+                        <div class="central-product-display">
+                            <img src="others-icon.png" alt="Celestial Diamond Pendant" id="central-product-image" class="product-image">
+                        </div>
+
+                        <!-- Orbiting Products -->
+                        <div class="orbit-path">
+                            <div class="orbiting-product" data-target="celestial-pendant">
+                                <div class="orbit-item">
+                                    <img src="others-icon.png" alt="Celestial Pendant Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="bridal-necklace">
+                                <div class="orbit-item">
+                                    <img src="Necklace-icon.png" alt="Bridal Necklace Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="eternity-bracelet">
+                                <div class="orbit-item">
+                                    <img src="rings-icon.png" alt="Eternity Bracelet Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="infinity-earrings">
+                                <div class="orbit-item">
+                                    <img src="Necklace-icon.png" alt="Infinity Earrings Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="gemstone-ring">
+                                <div class="orbit-item">
+                                    <img src="rings-icon.png" alt="Gemstone Ring Icon" class="orbit-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation Dots -->
+                        <div class="orbit-nav">
+                            <button class="nav-dot active" data-target="celestial-pendant"></button>
+                            <button class="nav-dot" data-target="bridal-necklace"></button>
+                            <button class="nav-dot" data-target="eternity-bracelet"></button>
+                            <button class="nav-dot" data-target="infinity-earrings"></button>
+                            <button class="nav-dot" data-target="gemstone-ring"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button LAST -->
+                <div class="hero-cta">
+                    <button class="cta-button primary" id="hero-shop-collection">Shop Collection</button>
                 </div>
             </div>
 
-            <!-- Right Content - Orbital System -->
-            <div class="hero-visual">
-                <div class="orbital-system">
-                    <!-- Dynamic Central Product Display -->
-                    <div class="central-product-display">
-                        <img src="others-icon.png" alt="Celestial Diamond Pendant" id="central-product-image" class="product-image">
-                    </div>
-
-                    <!-- Orbiting Products -->
-                    <div class="orbit-path">
-                        <div class="orbiting-product" data-target="celestial-pendant">
-                            <div class="orbit-item">
-                                <img src="others-icon.png" alt="Celestial Pendant Icon" class="orbit-image">
-                            </div>
-                        </div>
-                        <div class="orbiting-product" data-target="bridal-necklace">
-                            <div class="orbit-item">
-                                <img src="Necklace-icon.png" alt="Bridal Necklace Icon" class="orbit-image">
-                            </div>
-                        </div>
-                        <div class="orbiting-product" data-target="eternity-bracelet">
-                            <div class="orbit-item">
-                                <img src="rings-icon.png" alt="Eternity Bracelet Icon" class="orbit-image">
-                            </div>
-                        </div>
-                        <div class="orbiting-product" data-target="infinity-earrings">
-                            <div class="orbit-item">
-                                <img src="Necklace-icon.png" alt="Infinity Earrings Icon" class="orbit-image">
-                            </div>
-                        </div>
-                        <div class="orbiting-product" data-target="luxury-watch">
-                            <div class="orbit-item">
-                                <img src="watches-icon.png" alt="Luxury Watch Icon" class="orbit-image">
-                            </div>
-                        </div>
-                        <div class="orbiting-product" data-target="gemstone-ring">
-                            <div class="orbit-item">
-                                <img src="rings-icon.png" alt="Gemstone Ring Icon" class="orbit-image">
+            <!-- Desktop Layout: Original grid layout -->
+            <div class="hero-content-desktop">
+                <!-- Left Content - Text -->
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <div class="content-wrapper">
+                            <div class="hero-brand-name">Luxtive</div>
+                            <h1 class="hero-title">Timeless Elegance</h1>
+                            <p class="hero-subtitle">Crafted with precision, designed for forever. Discover jewelry that tells your unique story.</p>
+                            <div class="hero-cta">
+                                <button class="cta-button primary" id="hero-shop-collection-desktop">Shop Collection</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Navigation Dots -->
-                    <div class="orbit-nav">
-                        <button class="nav-dot active" data-target="celestial-pendant"></button>
-                        <button class="nav-dot" data-target="bridal-necklace"></button>
-                        <button class="nav-dot" data-target="eternity-bracelet"></button>
-                        <button class="nav-dot" data-target="infinity-earrings"></button>
-                        <button class="nav-dot" data-target="luxury-watch"></button>
-                        <button class="nav-dot" data-target="gemstone-ring"></button>
+                <!-- Right Content - Orbital System -->
+                <div class="hero-visual">
+                    <div class="orbital-system">
+                        <!-- Dynamic Central Product Display -->
+                        <div class="central-product-display">
+                            <img src="others-icon.png" alt="Celestial Diamond Pendant" id="central-product-image-desktop" class="product-image">
+                        </div>
+
+                        <!-- Orbiting Products -->
+                        <div class="orbit-path">
+                            <div class="orbiting-product" data-target="celestial-pendant">
+                                <div class="orbit-item">
+                                    <img src="others-icon.png" alt="Celestial Pendant Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="bridal-necklace">
+                                <div class="orbit-item">
+                                    <img src="Necklace-icon.png" alt="Bridal Necklace Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="eternity-bracelet">
+                                <div class="orbit-item">
+                                    <img src="rings-icon.png" alt="Eternity Bracelet Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="infinity-earrings">
+                                <div class="orbit-item">
+                                    <img src="Necklace-icon.png" alt="Infinity Earrings Icon" class="orbit-image">
+                                </div>
+                            </div>
+                            <div class="orbiting-product" data-target="gemstone-ring">
+                                <div class="orbit-item">
+                                    <img src="rings-icon.png" alt="Gemstone Ring Icon" class="orbit-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation Dots -->
+                        <div class="orbit-nav">
+                            <button class="nav-dot active" data-target="celestial-pendant"></button>
+                            <button class="nav-dot" data-target="bridal-necklace"></button>
+                            <button class="nav-dot" data-target="eternity-bracelet"></button>
+                            <button class="nav-dot" data-target="infinity-earrings"></button>
+                            <button class="nav-dot" data-target="gemstone-ring"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
 
-    <section class="category-selector">
+    <section id="categories" class="category-selector">
         <div class="category-selector-container">
             <div class="explore-cta">
                 <h2 class="section-title">Find Your Signature Piece</h2>
                 <p class="section-subtitle">From timeless classics to modern designs, our collection has something for every style and occasion.</p>
-                <a href="shop.html" class="cta-button primary">Explore Now</a>
+                <button class="cta-button primary" id="explore-now-btn">Explore Now</button>
             </div>
             <div class="category-grid">
                 <h3 class="category-grid-title">What are you looking for?</h3>
                 <div class="category-buttons">
-                    <a href="shop.html" class="category-btn">
+                    <a href="shop.html?category=necklaces" class="category-btn">
                         <span>Necklaces</span>
                     </a>
-                    <a href="shop.html" class="category-btn">
-                        <span>Bracelet</span>
+                    <a href="shop.html?category=bracelets" class="category-btn">
+                        <span>Bracelets</span>
                     </a>
-                    <a href="shop.html" class="category-btn">
+                    <a href="shop.html?category=rings" class="category-btn">
                         <span>Rings</span>
                     </a>
-                    <a href="shop.html" class="category-btn">
-                        <span>Watches</span>
+                    <a href="shop.html?category=jewelry-sets" class="category-btn">
+                        <span>Jewelry Sets</span>
                     </a>
-                    <a href="shop.html" class="category-btn">
+                    <a href="shop.html?category=anklets" class="category-btn">
                         <span>Anklets</span>
                     </a>
                     <a href="shop.html" class="category-btn">
@@ -222,145 +321,88 @@
         </div>
     </section>
 
-    <section class="promo-spotlight">
+    <section id="promotions" class="promo-spotlight">
         <div class="promo-container">
-            <div class="promo-info-column">
-                <div class="promo-header">
-                    <h2 class="promo-title">50% OFF</h2>
-                    <p class="promo-subtitle">On Selected Jewelry Pieces</p>
-                </div>
-                <p class="promo-additional-text">Our best selling pieces are now on sale. Limited time only.</p>
-                <div class="promo-description-card">
-                    <h4 id="promo-product-title">The Radiance Pendant</h4>
-                    <p id="promo-product-description">A stunning centerpiece crafted from 18k gold, featuring a brilliant-cut diamond that captures light from every angle. A timeless addition to any collection.</p>
-                </div>
-            </div>
-            <div class="promo-content">
-                <div class="promo-main-product">
-                    <div class="promo-product-image-wrapper">
-                        <img src="others-icon.png" alt="Gemstone Pendant" class="promo-product-image">
-                        <!-- Surrounding icons -->
-                        <div class="surrounding-icon icon-ring">
-                            <img src="rings-icon.png" alt="Ring">
+            <div class="promo-layout-wrapper">
+                <div class="promo-info-column">
+                    <div class="promo-header-mobile">
+                        <div class="promo-title-wrapper">
+                            <h2 class="promo-title">50% OFF</h2>
+                            <p class="promo-subtitle">On Selected Jewelry Pieces</p>
                         </div>
-                        <div class="surrounding-icon icon-earrings">
-                            <img src="Necklace-icon.png" alt="Earrings">
-                        </div>
-                        <div class="surrounding-icon icon-band">
-                            <img src="bracelet-icon.png" alt="Band">
+                        <p class="promo-additional-text">Our best selling pieces are now on sale. Limited time only.</p>
+                    </div>
+                    
+                    <div class="promo-content">
+                        <div class="promo-main-product">
+                            <div class="promo-product-image-wrapper">
+                                <img src="others-icon.png" alt="Gemstone Pendant" class="promo-product-image">
+                                <!-- Surrounding icons -->
+                                <div class="surrounding-icon icon-ring">
+                                    <img src="rings-icon.png" alt="Ring">
+                                </div>
+                                <div class="surrounding-icon icon-earrings">
+                                    <img src="Necklace-icon.png" alt="Earrings">
+                                </div>
+                                <div class="surrounding-icon icon-band">
+                                    <img src="bracelet-icon.png" alt="Band">
+                                </div>
+                            </div>
+                            <div class="promo-product-details">
+                                <div class="promo-price">
+                                    <span class="original-price" id="promo-original-price">$1,200</span>
+                                    <span class="discounted-price" id="promo-discounted-price">$600</span>
+                                </div>
+                                <button class="cta-button primary js-add-to-cart" data-product-id="promo-pendant">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="promo-product-details">
-                        <div class="promo-price">
-                            <span class="original-price" id="promo-original-price">$1,200</span>
-                            <span class="discounted-price" id="promo-discounted-price">$600</span>
-                        </div>
-                        <button class="cta-button primary add-to-cart-promo">Add to Cart</button>
+                    <div class="promo-description-card">
+                        <h4 id="promo-product-title">The Radiance Pendant</h4>
+                        <p id="promo-product-description">A stunning centerpiece crafted from 18k gold, featuring a brilliant-cut diamond that captures light from every angle. A timeless addition to any collection.</p>
                     </div>
                 </div>
-                <a href="shop.html" class="view-all-link">View All Products &rarr;</a>
-            </div>
-            <div class="vertical-carousel-wrapper">
-                <button class="carousel-arrow up-arrow" id="promo-carousel-prev" aria-label="Previous item">&uarr;</button>
-                <div class="vertical-carousel" id="promo-carousel-container">
-                    <div class="carousel-item" data-product-id="promo-ring"><img src="rings-icon.png" alt="Promo Item 1"></div>
-                    <div class="carousel-item active" data-product-id="promo-pendant"><img src="others-icon.png" alt="Promo Item 2"></div>
-                    <div class="carousel-item" data-product-id="promo-bracelet"><img src="bracelet-icon.png" alt="Promo Item 3"></div>
-                    <div class="carousel-item" data-product-id="promo-watch"><img src="watches-icon.png" alt="Promo Item 4"></div>
-                    <div class="carousel-item" data-product-id="promo-anklet"><img src="anklet-icon.png" alt="Promo Item 5"></div>
-                    <div class="carousel-item" data-product-id="promo-necklace"><img src="Necklace-icon.png" alt="Promo Item 6"></div>
-                    <div class="carousel-item" data-product-id="promo-ring-2"><img src="rings-icon.png" alt="Promo Item 7"></div>
-                    <div class="carousel-item" data-product-id="promo-bracelet-2"><img src="bracelet-icon.png" alt="Promo Item 8"></div>
-                    <div class="carousel-item" data-product-id="promo-watch-2"><img src="watches-icon.png" alt="Promo Item 9"></div>
-                    <div class="carousel-item" data-product-id="promo-anklet-2"><img src="anklet-icon.png" alt="Promo Item 10"></div>
+                
+                <div class="promo-carousel-wrapper">
+                    <div class="carousel-controls">
+                        <button class="carousel-arrow prev-arrow" id="promo-carousel-prev" aria-label="Previous item">&larr;</button>
+                        <button class="carousel-arrow next-arrow" id="promo-carousel-next" aria-label="Next item">&rarr;</button>
+                    </div>
+                    <div class="horizontal-carousel-container">
+                        <div class="horizontal-carousel" id="promo-carousel-container">
+                            <!-- Promotional products will be dynamically loaded here -->
+                        </div>
+                    </div>
                 </div>
-                <button class="carousel-arrow down-arrow" id="promo-carousel-next" aria-label="Next item">&darr;</button>
             </div>
         </div>
     </section>
 
-    <section class="most-loved">
+    <!-- New Arrivals Section -->
+    <section id="new-arrivals" class="new-arrivals">
+        <div class="container">
+            <div class="new-arrivals-header">
+                <h2 class="section-title">New Arrivals</h2>
+                <p class="section-subtitle">Be the first to discover our latest creations, crafted with passion and precision.</p>
+                <button class="cta-button secondary" id="view-all-new-btn">View All New</button>
+            </div>
+            <div class="product-grid-wrapper">
+                <div class="product-grid" id="new-arrivals-grid">
+                    <!-- New arrival products will be dynamically loaded here -->
+                </div>
+            </div>
+            <div class="grid-navigation">
+                <button class="grid-nav-btn prev" id="new-arrivals-prev" aria-label="Previous arrivals">&larr;</button>
+                <button class="grid-nav-btn next" id="new-arrivals-next" aria-label="Next arrivals">&rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="most-loved" class="most-loved">
         <div class="container">
             <h2 class="section-title text-center">Our Most Loved Pieces</h2>
             <div class="product-grid-wrapper">
-                <div class="product-grid" id="most-loved-grid">
-                    <!-- Page 1 -->
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="watches-icon.png" alt="Rose Gold Timepiece"></a>
-                            <span class="product-badge">Bestseller</span>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Rose Gold Timepiece</a></h3>
-                            <p class="product-price">$3,800</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="Necklace-icon.png" alt="Celestial Moon Necklace"></a>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Celestial Moon Necklace</a></h3>
-                            <p class="product-price">$1,100</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="bracelet-icon.png" alt="Diamond Tennis Bracelet"></a>
-                            <span class="product-badge">Bestseller</span>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Diamond Tennis Bracelet</a></h3>
-                            <p class="product-price">$2,500</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="rings-icon.png" alt="Eternity Band"></a>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Eternity Band</a></h3>
-                            <p class="product-price">$980</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="anklet-icon.png" alt="Dainty Diamond Anklet"></a>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Dainty Diamond Anklet</a></h3>
-                            <p class="product-price">$750</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="others-icon.png" alt="Radiance Pendant"></a>
-                            <span class="product-badge">Bestseller</span>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Radiance Pendant</a></h3>
-                            <p class="product-price">$1,200</p>
-                        </div>
-                    </div>
-                    <!-- Page 2 -->
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <a href="shop.html"><img src="watches-icon.png" alt="Rose Gold Timepiece"></a>
-                            <span class="product-badge">Bestseller</span>
-                            <button class="cta-button secondary add-to-cart-grid">Add to Cart</button>
-                        </div>
-                        <div class="product-card-details">
-                            <h3 class="product-name"><a href="#">Rose Gold Timepiece</a></h3>
-                            <p class="product-price">$3,800</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="product-grid" id="most-loved-grid" style="gap: 2rem;"></div>
             </div>
             <div class="grid-navigation">
                 <button class="grid-nav-btn prev" id="loved-grid-prev" aria-label="Previous page">&larr;</button>
@@ -369,62 +411,66 @@
         </div>
     </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title text-center">Customer Testimonials</h2>
-            <div class="testimonial-carousel-wrapper">
-                <div class="testimonial-grid" id="testimonial-grid">
-                    <!-- Testimonial Card 1 -->
-                    <div class="review-card">
-                        <img src="https://i.pravatar.cc/100?img=1" alt="Customer photo" class="review-photo">
-                        <h4 class="review-name">Jessica L.</h4>
-                        <div class="star-rating">★★★★★</div>
-                        <blockquote class="review-text">"The quality is simply breathtaking. My necklace is more beautiful than I could have imagined. Truly a work of art!"</blockquote>
-                    </div>
-                    <!-- Testimonial Card 2 -->
-                    <div class="review-card">
-                        <img src="https://i.pravatar.cc/100?img=2" alt="Customer photo" class="review-photo">
-                        <h4 class="review-name">Michael B.</h4>
-                        <div class="star-rating">★★★★★</div>
-                        <blockquote class="review-text">"I bought an engagement ring from Luxtive, and the service was as flawless as the diamond. She said yes!"</blockquote>
-                    </div>
-                    <!-- Testimonial Card 3 -->
-                    <div class="review-card">
-                        <img src="https://i.pravatar.cc/100?img=3" alt="Customer photo" class="review-photo">
-                        <h4 class="review-name">Sophia T.</h4>
-                        <div class="star-rating">★★★★★</div>
-                        <blockquote class="review-text">"Elegant, timeless, and sophisticated. I receive compliments every time I wear my bracelet. Highly recommend."</blockquote>
-                    </div>
-                    <!-- Testimonial Card 4 -->
-                    <div class="review-card">
-                        <img src="https://i.pravatar.cc/100?img=4" alt="Customer photo" class="review-photo">
-                        <h4 class="review-name">David R.</h4>
-                        <div class="star-rating">★★★★★</div>
-                        <blockquote class="review-text">"The watch I purchased is a masterpiece of craftsmanship. It feels substantial and looks incredible."</blockquote>
-                    </div>
-                    <!-- Testimonial Card 5 -->
-                    <div class="review-card">
-                        <img src="https://i.pravatar.cc/100?img=5" alt="Customer photo" class="review-photo">
-                        <h4 class="review-name">Emily C.</h4>
-                        <div class="star-rating">★★★★★</div>
-                        <blockquote class="review-text">"From the packaging to the piece itself, everything about Luxtive screams luxury. I felt so special."</blockquote>
-                    </div>
-                    <!-- Testimonial Card 6 -->
-                    <div class="review-card">
-                        <img src="https://i.pravatar.cc/100?img=6" alt="Customer photo" class="review-photo">
-                        <h4 class="review-name">James P.</h4>
-                        <div class="star-rating">★★★★★</div>
-                        <blockquote class="review-text">"A perfect anniversary gift. The customer support team helped me choose the right piece. Thank you!"</blockquote>
+    <section class="testimonials-split">
+        <div class="testimonial-image-column">
+            <img src="testimonials.jpg" alt="Customer wearing Luxtive jewelry">
+        </div>
+        <div class="testimonial-content-column">
+            <div class="testimonial-content-wrapper">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonial-carousel-wrapper">
+                    <div class="testimonial-grid" id="testimonial-grid">
+                        <!-- Testimonial Card 1 -->
+                        <div class="review-card">
+                            <img src="https://i.pravatar.cc/100?img=1" alt="Customer photo" class="review-photo">
+                            <h4 class="review-name">Jessica L.</h4>
+                            <div class="star-rating">★★★★★</div>
+                            <blockquote class="review-text">"The quality is simply breathtaking. My necklace is more beautiful than I could have imagined. Truly a work of art!"</blockquote>
+                        </div>
+                        <!-- Testimonial Card 2 -->
+                        <div class="review-card">
+                            <img src="https://i.pravatar.cc/100?img=2" alt="Customer photo" class="review-photo">
+                            <h4 class="review-name">Michael B.</h4>
+                            <div class="star-rating">★★★★★</div>
+                            <blockquote class="review-text">"I bought an engagement ring from Luxtive, and the service was as flawless as the diamond. She said yes!"</blockquote>
+                        </div>
+                        <!-- Testimonial Card 3 -->
+                        <div class="review-card">
+                            <img src="https://i.pravatar.cc/100?img=3" alt="Customer photo" class="review-photo">
+                            <h4 class="review-name">Sophia T.</h4>
+                            <div class="star-rating">★★★★★</div>
+                            <blockquote class="review-text">"Elegant, timeless, and sophisticated. I receive compliments every time I wear my bracelet. Highly recommend."</blockquote>
+                        </div>
+                        <!-- Testimonial Card 4 -->
+                        <div class="review-card">
+                            <img src="https://i.pravatar.cc/100?img=4" alt="Customer photo" class="review-photo">
+                            <h4 class="review-name">David R.</h4>
+                            <div class="star-rating">★★★★★</div>
+                            <blockquote class="review-text">"The watch I purchased is a masterpiece of craftsmanship. It feels substantial and looks incredible."</blockquote>
+                        </div>
+                        <!-- Testimonial Card 5 -->
+                        <div class="review-card">
+                            <img src="https://i.pravatar.cc/100?img=5" alt="Customer photo" class="review-photo">
+                            <h4 class="review-name">Emily C.</h4>
+                            <div class="star-rating">★★★★★</div>
+                            <blockquote class="review-text">"From the packaging to the piece itself, everything about Luxtive screams luxury. I felt so special."</blockquote>
+                        </div>
+                        <!-- Testimonial Card 6 -->
+                        <div class="review-card">
+                            <img src="https://i.pravatar.cc/100?img=6" alt="Customer photo" class="review-photo">
+                            <h4 class="review-name">James P.</h4>
+                            <div class="star-rating">★★★★★</div>
+                            <blockquote class="review-text">"A perfect anniversary gift. The customer support team helped me choose the right piece. Thank you!"</blockquote>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="grid-navigation">
-                <button class="grid-nav-btn prev" id="testimonial-grid-prev" aria-label="Previous testimonials">&larr;</button>
-                <button class="grid-nav-btn next" id="testimonial-grid-next" aria-label="Next testimonials">&rarr;</button>
+                <div class="grid-navigation">
+                    <button class="grid-nav-btn prev" id="testimonial-grid-prev" aria-label="Previous testimonials">&larr;</button>
+                    <button class="grid-nav-btn next" id="testimonial-grid-next" aria-label="Next testimonials">&rarr;</button>
+                </div>
             </div>
         </div>
     </section>
-
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -438,10 +484,9 @@
                 </div>
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQs</a></li>
+                        <li><a href="about.html#contact-us">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -449,41 +494,27 @@
                 <div class="newsletter-signup">
                     <h4 class="footer-heading">Join Our World</h4>
                     <p>Be the first to know about new arrivals, exclusive offers, and more.</p>
-                    <form class="newsletter-form">
+                    <form class="newsletter-form" id="newsletter-form">
                         <input type="email" placeholder="Enter your email address" required>
                         <button type="submit" class="cta-button primary">Subscribe</button>
                     </form>
                 </div>
                 <div class="social-links">
                     <h4 class="footer-heading">Follow Us</h4>
-
-
                     <!-- Social Media Icons Section -->
-<div class="social-icons">
-    <a href="https://instagram.com/luxutive" class="social-icon instagram" target="_blank" aria-label="Follow us on Instagram">
-        <i class="fab fa-instagram"></i>
-        <span class="social-label">Instagram</span>
-    </a>
-
-    <a href="https://snapchat.com/add/luxutive" class="social-icon snapchat" target="_blank" aria-label="Add us on Snapchat">
-        <i class="fab fa-snapchat-ghost"></i>
-        <span class="social-label">Snapchat</span>
-    </a>
-
-    <a href="https://tiktok.com/@luxutive" class="social-icon tiktok" target="_blank" aria-label="Follow us on TikTok">
-        <i class="fab fa-tiktok"></i>
-        <span class="social-label">TikTok</span>
-    </a>
-
-    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://twitter.com" aria-label="X (Twitter)" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://snapchat.com" aria-label="Snapchat" target="_blank"><i class="fab fa-snapchat"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="customer-service-links">
-                    <a href="#">Shipping & Returns</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
+                    <a href="about.html#our-policies">Shipping & Returns</a>
+                    <a href="about.html#our-policies">Privacy Policy</a>
+                    <a href="about.html#our-policies">Terms & Conditions</a>
                 </div>
                 <div class="contact-info">
                     <span>Email: <a href="mailto:support@luxtivejewelry.com">support@luxtivejewelry.com</a></span>
@@ -497,9 +528,35 @@
     <!-- Back to Top Button -->
     <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to top">&uarr;</button>
 
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quick-view-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content will be injected here by script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div class="quick-view-modal" id="compare-modal">
+        <div class="modal-content wide">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header" style="text-align: center; margin-bottom: 2rem;">
+                <h2>Compare Products</h2>
+            </div>
+            <div class="modal-body" id="compare-modal-body">
+                <!-- Comparison content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add to Cart Notification -->
+    <div id="toast-notification" class="toast-notification"></div>
+
+    <!-- Overlay for mobile menu and modals -->
+    <div class="overlay" id="overlay"></div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
