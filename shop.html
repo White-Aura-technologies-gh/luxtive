@@ -120,7 +120,7 @@
                 <ul class="mobile-nav-list">
                     <li class="mobile-nav-item">
                         <a href="index.html" class="mobile-nav-link">Home</a>
-                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
                         <div class="mobile-dropdown-menu">
                             <a href="index.html#categories">Categories</a>
                             <a href="index.html#promotions">Promotions</a>
@@ -130,7 +130,7 @@
                     </li>
                     <li class="mobile-nav-item">
                         <a href="shop.html" class="mobile-nav-link">Shop</a>
-                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
                         <div class="mobile-dropdown-menu">
                             <a href="shop.html?category=necklaces">Necklaces</a>
                             <a href="shop.html?category=rings">Rings</a>
@@ -141,7 +141,7 @@
                     </li>
                     <li class="mobile-nav-item has-dropdown">
                         <a href="about.html" class="mobile-nav-link">About Us</a>
-                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <span class="mobile-dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
                         <div class="mobile-dropdown-menu">
                             <a href="about.html#our-purpose">Our Purpose</a>
                             <a href="about.html#why-choose-luxtive">Why Choose Luxtive</a>
@@ -181,58 +181,73 @@
                 </div>
             </header>
 
+            <!-- Filter & Products Layout -->
             <div class="shop-layout">
-                <!-- Filters Sidebar -->
-                <aside class="filters-sidebar">
-                    <div class="filter-group">
-                        <h3 class="filter-title">Categories</h3>
-                        <div class="category-filter-list">
-                            <button class="category-filter-btn active" data-category="all" data-action="filter">★ All</button>
-                            <button class="category-filter-btn" data-action="open-custom-modal">Customized Jewelry <span class="category-tag">Bespoke</span></button>
-                            <button class="category-filter-btn" data-category="necklaces">Necklaces</button>
-                            <button class="category-filter-btn" data-category="jewelry-sets">Jewelry sets</button>
-                            <button class="category-filter-btn" data-category="earrings">Earrings</button>
-                            <button class="category-filter-btn" data-category="rings">Rings</button>
-                            <button class="category-filter-btn" data-category="bracelets">Bracelets</button>
-                            <button class="category-filter-btn" data-category="anklets">Anklets</button>
-                            <button class="category-filter-btn" data-category="brooches">Brooches</button>
-                            <button class="category-filter-btn" data-category="waist-chains">Waist Chains</button>
-                        </div>
-                    </div>
-                    <div class="filter-group">
-                        <h3 class="filter-title">Price Range</h3>
-                        <div class="price-filter">
-                            <input type="range" id="price-range" name="price-range" min="100" max="5000" value="2500">
-                            <div class="price-label">
-                                <span>$100</span>
-                                <span id="price-value">$2500</span>
-                                <span>$5000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-group">
-                        <h3 class="filter-title">Metal</h3>
-                        <div class="category-filter-buttons">
-                            <button class="category-filter-btn" data-metal="gold">Gold</button>
-                            <button class="category-filter-btn" data-metal="silver">Silver</button>
-                        </div>
-                    </div>
-                    <button class="cta-button secondary apply-filters-btn">Apply Filters</button>
-                </aside>
-
                 <!-- Products Area -->
                 <div class="products-area">
                     <!-- Sorting and View Options -->
                     <div class="shop-controls">
+                        <div class="filter-sort-wrapper">
+                            <button class="icon-btn filter-toggle-btn" id="filter-toggle-btn" aria-label="Toggle Filters">
+                                <i class="fas fa-sliders-h"></i>
+                            </button>
+                            <div class="sort-options">
+                                <label for="sort-by">Sort by:</label>
+                                <select id="sort-by" name="sort-by">
+                                    <option value="featured">Featured</option>
+                                    <option value="price-asc">Price: Low to High</option>
+                                    <option value="price-desc">Price: High to Low</option>
+                                    <option value="newest">Newest</option> 
+                                </select> 
+                            </div>
+                        </div>
                         <span class="product-count">Showing 1-12 of 48 products</span>
-                        <div class="sort-options">
-                            <label for="sort-by">Sort by:</label>
-                            <select id="sort-by" name="sort-by">
-                                <option value="featured">Featured</option>
-                                <option value="price-asc">Price: Low to High</option>
-                                <option value="price-desc">Price: High to Low</option>
-                                <option value="newest">Newest</option>
-                            </select>
+                    </div>
+
+                    <!-- Filters Dropdown Panel -->
+                    <div class="filters-panel" id="filters-panel">
+                        <div class="filters-panel-header">
+                            <h3>Filter Collection</h3>
+                            <button class="close-filters" id="close-filters-btn">&times;</button>
+                        </div>
+                        <div class="filters-panel-body">
+                            <div class="filter-group">
+                                <h3 class="filter-title">Categories</h3>
+                                <div class="category-filter-list">
+                                    <button class="category-filter-btn active" data-category="all" data-action="filter">★ All</button>
+                                    <button class="category-filter-btn" data-action="open-custom-modal">Customized Jewelry <span class="category-tag">Bespoke</span></button>
+                                    <button class="category-filter-btn" data-category="necklaces">Necklaces</button>
+                                    <button class="category-filter-btn" data-category="jewelry-sets">Jewelry sets</button>
+                                    <button class="category-filter-btn" data-category="earrings">Earrings</button>
+                                    <button class="category-filter-btn" data-category="rings">Rings</button>
+                                    <button class="category-filter-btn" data-category="bracelets">Bracelets</button>
+                                    <button class="category-filter-btn" data-category="anklets">Anklets</button>
+                                    <button class="category-filter-btn" data-category="brooches">Brooches</button>
+                                    <button class="category-filter-btn" data-category="waist-chains">Waist Chains</button>
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <h3 class="filter-title">Price Range</h3>
+                                <div class="price-filter">
+                                    <input type="range" id="price-range" name="price-range" min="100" max="5000" value="2500">
+                                    <div class="price-label">
+                                        <span>$100</span>
+                                        <span id="price-value">$2500</span>
+                                        <span>$5000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <h3 class="filter-title">Metal</h3>
+                                <div class="category-filter-buttons">
+                                    <button class="category-filter-btn" data-metal="gold">Gold</button>
+                                    <button class="category-filter-btn" data-metal="silver">Silver</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filters-panel-footer">
+                            <button class="cta-button tertiary clear-filters-btn">Clear All</button>
+                            <button class="cta-button primary apply-filters-btn">Show Results</button>
                         </div>
                     </div>
 
@@ -314,6 +329,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Loading/Empty States -->
+                    <div id="loading-state" class="loading-state" style="display: none;"></div>
+                    <div id="empty-state" class="empty-state" style="display: none;"></div>
 
                     <!-- Pagination -->
                     <nav class="pagination">
@@ -440,8 +459,11 @@
     <!-- Add to Cart Notification -->
     <div id="toast-notification" class="toast-notification"></div>
 
-    <script src="shop.js"></script>
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
 
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
 </body>
 
 </html>
